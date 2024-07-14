@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "workspaces": ["backend", "infra"],
+  "workspaces": ["client", "backend", "infra"],
   "scripts": {
     "build": "pnpm --filter backend run build && pnpm --filter infra run synth",
     "predev": "pnpm run build",
-    "dev": "sam local start-api --template=infra/cdk.out/ApiGatewayLambdaNextjsSamStack.template.json --warm-containers EAGER"
+    "dev": "pnpm --filter client run dev & sam local start-api --template=infra/cdk.out/ApiGatewayLambdaNextjsSamStack.template.json --warm-containers EAGER"
   },
   "keywords": [],
   "author": "",
